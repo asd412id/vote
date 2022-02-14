@@ -3,7 +3,8 @@
 		<div class="flex h-screen flex-col p-3 justify-center items-center">
 			<div x-show="!openScan">
 				<div class="self-start items-center justify-center w-full text-center">
-					<h2 class="text-4xl font-bold">
+					<x-application-logo class="w-auto inline-block h-20 text-gray-500 fill-current" />
+					<h2 class="text-4xl font-bold mt-3">
 						Selamat Datang di
 					</h2>
 					<h1 class="mb-5 text-5xl font-bold md:whitespace-nowrap">

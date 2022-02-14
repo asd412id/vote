@@ -2,10 +2,11 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 text-gray-500 fill-current" />
+                <x-application-logo class="w-auto h-20 text-gray-500 fill-current" />
             </a>
         </x-slot>
 
+        <div class="text-center text-xl mb-3 text-gray-600">LOGIN ADMINISTRATOR</div>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
