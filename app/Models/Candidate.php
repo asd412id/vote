@@ -18,4 +18,12 @@ class Candidate extends Model
     {
         return $this->hasMany(Voter::class);
     }
+
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($m) {
+            Storage::disk('public')->delete($m->image);
+        });
+    }
 }

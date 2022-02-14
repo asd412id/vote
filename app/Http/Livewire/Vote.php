@@ -109,6 +109,8 @@ class Vote extends Component
 	public function destroy()
 	{
 		$dta = ModelsVote::find($this->ID);
+		$dta->candidates()->delete();
+		$dta->voters()->delete();
 		$dta->delete();
 		$this->notification()->success('Berhasil', 'Data berhasil dihapus');
 	}

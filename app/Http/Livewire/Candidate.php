@@ -138,6 +138,7 @@ class Candidate extends Component
 	{
 		$dta = ModelsCandidate::find($this->ID);
 		Storage::disk('public')->delete($dta->image);
+		$dta->voters()->update(['candidate_id' => null, 'voted_time' => null]);
 		$dta->delete();
 		$this->notification()->success('Berhasil', 'Data berhasil dihapus');
 	}
