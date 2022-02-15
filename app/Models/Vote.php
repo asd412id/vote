@@ -14,12 +14,12 @@ class Vote extends Model
 
     public function candidates()
     {
-        return $this->hasMany(Candidate::class);
+        return $this->hasMany(Candidate::class)->orderBy('id', 'asc');
     }
 
     public function voters()
     {
-        return $this->hasMany(Voter::class);
+        return $this->hasMany(Voter::class)->orderBy('id', 'asc');
     }
 
     public static function boot()

@@ -74,7 +74,9 @@ Route::middleware('auth')->group(function () {
 		})->name('voter');
 		Route::get('/print', function () {
 			$ids = explode('|', request()->id);
-			$data = Voter::whereIn('id', $ids)->get();
+			$data = Voter::whereIn('id', $ids)
+				->orderBy('id', 'asc')
+				->get();
 			return view('admin.print', ['data' => $data]);
 		})->name('print');
 	});

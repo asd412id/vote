@@ -16,7 +16,7 @@ class Candidate extends Model
 
     public function voters()
     {
-        return $this->hasMany(Voter::class);
+        return $this->hasMany(Voter::class)->orderBy('id', 'asc');
     }
 
     public static function boot()
