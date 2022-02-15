@@ -109,7 +109,6 @@ class Voter extends Component
 	public function destroy()
 	{
 		$dta = ModelsVoter::find($this->ID);
-		Storage::disk('public')->delete($dta->image);
 		$dta->delete();
 		$this->notification()->success('Berhasil', 'Data berhasil dihapus');
 	}

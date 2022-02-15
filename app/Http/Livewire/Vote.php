@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Vote as ModelsVote;
 use App\PageHelpers;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class Vote extends Component
@@ -109,6 +110,9 @@ class Vote extends Component
 	public function destroy()
 	{
 		$dta = ModelsVote::find($this->ID);
+		foreach ($dta->candidates as $v) {
+			Storage::disk('public')->delete($v->image);
+		}
 		$dta->candidates()->delete();
 		$dta->voters()->delete();
 		$dta->delete();
