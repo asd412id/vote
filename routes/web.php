@@ -62,13 +62,13 @@ Route::middleware('auth')->group(function () {
 		})->name('admin.dashboard');
 		Route::get('/kandidat', function () {
 			return view('admin.wrapper', [
-				'title' => 'Kandidat',
+				'title' => 'Daftar Kandidat',
 				'content' => 'candidate'
 			]);
 		})->name('candidate');
 		Route::get('/peserta', function () {
 			return view('admin.wrapper', [
-				'title' => 'Peserta',
+				'title' => 'Daftar Peserta',
 				'content' => 'voter'
 			]);
 		})->name('voter');

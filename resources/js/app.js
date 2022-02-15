@@ -24,6 +24,7 @@ window.startScan = () => {
         {
           fps: 10,    // Optional, frame per seconds for qr code scanning
           qrbox: 400,  // Optional, if you want bounded box UI
+          facingMode: { exact: "environment" }
         },
         (decodedText, decodedResult) => {
           getResult(decodedText);

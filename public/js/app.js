@@ -5544,8 +5544,11 @@ window.startScan = function () {
       html5QrCode.start(cameraId, {
         fps: 10,
         // Optional, frame per seconds for qr code scanning
-        qrbox: 400 // Optional, if you want bounded box UI
-
+        qrbox: 400,
+        // Optional, if you want bounded box UI
+        facingMode: {
+          exact: "environment"
+        }
       }, function (decodedText, decodedResult) {
         getResult(decodedText);
       }, function (errorMessage) {// parse error, ignore it.
