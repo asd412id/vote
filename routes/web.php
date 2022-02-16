@@ -46,7 +46,7 @@ Route::middleware('auth:voter')->group(function () {
 
 Route::get('/live/{uuid}', function ($uuid) {
 	$cek = Vote::where('uuid', $uuid)->first();
-	if (!$cek || !count($cek->candidates)) {
+	if (!$cek || !$cek->candidates()->count() || !$cek->voters()->count()) {
 		return redirect()->back();
 	}
 	return view('live', ['uuid' => $uuid, 'title' => "Live Voting"]);
