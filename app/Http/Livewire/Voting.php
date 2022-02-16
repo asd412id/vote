@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Candidate;
+use App\Models\Vote;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 
@@ -27,6 +28,17 @@ class Voting extends Component
 			return $this->notification()->error('Gagal', 'Kandidat tidak ditemukan!');
 		}
 		$update = auth()->user();
+
+		$vote = Vote::where('id', $update->vote_id)
+			->where('status', true)
+			->where('start', '<=', now()->toDateTimeString())
+			->where('end', '>=', now()->toDateTimeString())
+			->first();
+
+		if (!$vote) {
+			return $this->notification()->error('Gagal', 'Voting tidak dapat dilakukan saat ini!');
+		}
+
 		$update->candidate_id = $cek->id;
 		$update->voted_time = now();
 		$update->save();

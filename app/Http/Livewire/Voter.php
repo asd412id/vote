@@ -69,7 +69,8 @@ class Voter extends Component
 
 		$number = 0;
 		if ($cek) {
-			preg_match("/([0-9]+)/", $cek->name, $matches);
+			$getNum = str_replace($this->prefix_nama, '', $cek->name);
+			preg_match("/([0-9]+)/", $getNum, $matches);
 			$number = (int) $matches[0];
 		}
 
