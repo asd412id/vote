@@ -1,4 +1,4 @@
-<div class="p-3 h-screen relative" x-data x-init="setInterval(()=>{$refs.refresh.click()},60000)">
+<div class="p-3 pb-5 h-full md:h-screen relative" x-data x-init="setInterval(()=>{$refs.refresh.click()},15000)">
 	<button class="hidden" wire:click='refresh' x-ref="refresh">Refresh</button>
 	<div class="text-center mt-3 font-bold text-3xl">
 		@if ($vote->start > now()->toDateTimeString())
@@ -22,7 +22,7 @@
 			$percent = round($v->voters()->count()/$total*100,2);
 			@endphp
 			<div class="w-full md:w-3/12">
-				<x-card x-bind:class="choice=={{ $v->id }}?'bg-info-400':''">
+				<x-card>
 					<img src="{{ asset('uploaded/'.$v->image) }}" class="w-full h-full object-cover" alt="">
 					<x-slot name="footer">
 						<div class="text-center font-bold">

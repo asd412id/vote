@@ -11,7 +11,8 @@
       <label>Ditampilkan:</label>
       <x-select :options='[10,15,20,30,50,100, 500]' placeholder="Jumlah Tampilan" wire:model='perPage' class="-mt-1" />
     </div>
-    @if (request()->is('*peserta*')||request()->is('*message/voter*'))
+    @if (request()->is('*peserta*')||request()->is('*message/voter*') ||
+    request()->is('*kandidat*')||request()->is('*message/candidate*'))
     <x-native-select wire:model='vote'>
       <option value="">Semua Pemilihan</option>
       @foreach ($datavotes as $item)

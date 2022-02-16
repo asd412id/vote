@@ -14,6 +14,7 @@ class Candidate extends Component
 	use PageHelpers;
 	use WithFileUploads;
 
+	public $vote = '';
 	public $votes = [];
 	public $pemilihan;
 	public $nama_kandidat;
@@ -33,11 +34,14 @@ class Candidate extends Component
 						->orWhere('desc', 'like', "%$role%");
 				});
 		})
+			->when($this->vote, function ($q, $vote_id) {
+				$q->where('vote_id', $vote_id);
+			})
 			->with('vote')
 			->orderBy('vote_id', 'desc')
 			->orderBy('id', 'asc')
 			->paginate($this->perPage);
-		return view('livewire.candidate', ['data' => $data]);
+		return view('livewire.candidate', ['data' => $data, 'datavotes' => Vote::all()]);
 	}
 
 	public function create()

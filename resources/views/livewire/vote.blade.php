@@ -41,7 +41,7 @@
 								@if (count($data))
 								@foreach ($data as $v)
 								<tr>
-									<td class="px-6 py-4 whitespace-nowrap">
+									<td class="px-6 py-4">
 										<div class="flex flex-col gap-1">
 											<div class="font-medium text-gray-900">
 												{{ $v->title }}
@@ -58,7 +58,7 @@
 											<div class="text-sm text-gray-500 md:hidden">
 												Peserta: {{ $v->voters()->count() }}
 											</div>
-											<div class="text-sm text-gray-500 md:hidden">
+											<div class="text-sm text-gray-500 md:hidden whitespace-nowrap">
 												@if (!$v->status)
 												<span
 													class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-md">
@@ -85,7 +85,7 @@
 									<td class="hidden px-6 py-4 md:table-cell">
 										<div class="text-sm text-gray-900">{{ $v->voters()->count() }}</div>
 									</td>
-									<td class="hidden px-6 py-4 md:table-cell">
+									<td class="hidden px-6 py-4 md:table-cell whitespace-nowrap">
 										@if (!$v->status)
 										<span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-md">
 											Tidak Aktif
