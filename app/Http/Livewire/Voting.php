@@ -29,6 +29,10 @@ class Voting extends Component
 		}
 		$update = auth()->user();
 
+		if (!is_null($update->candidate_id) || !is_null($update->voted_time)) {
+			return $this->notification()->error('Gagal', 'Anda sudah memilih sebelumnya!');
+		}
+
 		$vote = Vote::where('id', $update->vote_id)
 			->where('status', true)
 			->where('start', '<=', now()->toDateTimeString())
