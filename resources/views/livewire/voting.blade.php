@@ -7,7 +7,7 @@
 	<div class="text-center mt-3 text-xl">{{ $vote->desc }}</div>
 	@endif
 
-	<div class="mt-5 px-10">
+	<div class="mt-5 px-10 pb-5">
 		@if ($vote->start > now()->toDateTimeString())
 		<div class="text-4xl mt-10 text-center font-bold italic text-red-600">Maaf, Proses {{ $vote->title }} akan dibuka
 			pada {{

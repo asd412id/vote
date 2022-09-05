@@ -15,7 +15,7 @@
 	@endif
 	<div class="text-center mt-3 text-2xl">Jumlah Suara Masuk: {{ $percent }}%</div>
 
-	<div class="mt-5 px-10">
+	<div class="mt-5 px-10 pb-20">
 		<div class="flex flex-col md:flex-row gap-5 justify-center">
 			@foreach ($vote->candidates as $key => $v)
 			@php
